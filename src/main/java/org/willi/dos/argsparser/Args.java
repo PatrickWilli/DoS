@@ -5,20 +5,23 @@
  */
 package org.willi.dos.argsparser;
 
+import org.apache.commons.cli.Options;
+
 /**
  *
  * @author phamm
  */
-public enum Args
+public class Args
 {
-    UDP("UDP"),
-    TCP("TCP"),
-    SLOWLORIS("SLOWLORIS"),
-    HTTP("HTTP");
+    private static Options options;
     
-    private String args;
-    private Args(String args)
+    public static void setArgs(Options op)
     {
-        this.args = args;
+        options = op;
+    }
+    
+    public static Options getArgs()
+    {
+        return options;
     }
 }

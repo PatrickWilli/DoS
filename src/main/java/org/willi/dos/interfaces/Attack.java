@@ -11,5 +11,6 @@ package org.willi.dos.interfaces;
  */
 public interface Attack
 {
+    
     public void startAttack();
 }
