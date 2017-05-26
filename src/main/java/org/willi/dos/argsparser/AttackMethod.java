@@ -5,7 +5,6 @@
  */
 package org.willi.dos.argsparser;
 
-import org.willi.dos.exceptions.AttackMethodException;
 
 /**
  *

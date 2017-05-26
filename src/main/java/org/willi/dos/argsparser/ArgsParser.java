@@ -5,14 +5,15 @@
  */
 package org.willi.dos.argsparser;
 
-import javafx.scene.shape.DrawMode;
+
 import org.apache.commons.cli.ParseException;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
-import org.willi.dos.exceptions.AttackMethodException;
 import org.willi.dos.methods.SlowLoris;
 import org.apache.commons.lang.StringUtils;
+import org.willi.dos.methods.HTTPFlood;
+import org.willi.dos.methods.UDPFlood;
 
 /**
  *
@@ -28,7 +29,7 @@ public class ArgsParser
 
     public static void main(String[] args)
     {
-        InitHelper helper = new InitHelper();
+       new InitHelper();
 
         if (args == null || args.length < 1)
         {
@@ -73,7 +74,7 @@ public class ArgsParser
         if (AttackMethod.isMoreThenOneSelected())
         {
             System.err.println("Please provide only one attack method");
-            System.exit(0);
+            return;
         }
         if (line.hasOption("target"))
         {
@@ -98,7 +99,7 @@ public class ArgsParser
         else
         {
             System.err.println("You have to provide connections");
-            System.exit(0);
+            return;
         }
         if (line.hasOption("duration"))
         {
@@ -114,7 +115,7 @@ public class ArgsParser
         else
         {
             System.err.println("You have to provide the duration");
-            System.exit(0);
+            return;
         }
         if(AttackMethod.isSlowLoris)
         {
@@ -126,9 +127,35 @@ public class ArgsParser
             }
             else
             {
-                System.err.println("Unkown error");
+                System.err.println("Please check your args");
             }
             
+        }
+        if(AttackMethod.isUDP)
+        {
+            if(target != null && connections != 0 && duration != 0)
+            {
+                UDPFlood udpflood = new UDPFlood(target, connections, duration);
+                udpflood.startAttack();
+                System.out.println("Starting attack on " + target);
+            }
+            else
+            {
+                System.out.println("Please check your args!");
+            }
+        }
+        if(AttackMethod.isHTTP)
+        {
+            if(target != null && connections != 0 && duration != 0)
+            {
+                HTTPFlood httpflood = new HTTPFlood(target, connections, duration);
+                httpflood.startAttack();
+                System.out.println("Starting attack on " + target);
+            }
+            else
+            {
+                System.out.println("Please check your args!");
+            }
         }
 
     }

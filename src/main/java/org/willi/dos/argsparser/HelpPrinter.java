@@ -6,7 +6,7 @@
 package org.willi.dos.argsparser;
 
 import org.apache.commons.cli.HelpFormatter;
-import org.willi.dos.methods.SlowLoris;
+import org.willi.dos.methods.AttackMethod;
 
 /**
  *
@@ -19,6 +19,6 @@ public class HelpPrinter
     {
         helpformatter = new HelpFormatter();
         helpformatter.setOptionComparator(null); //Keine sortierung der optionen
-        helpformatter.printHelp("DoS.jar [attack method] [target] [options]", "", Args.getArgs(), SlowLoris.printExampleUsage());
+        helpformatter.printHelp("DoS.jar [attack method] [target] [options]", "", Args.getArgs(), AttackMethod.printExampleUsage());
     }
 }
