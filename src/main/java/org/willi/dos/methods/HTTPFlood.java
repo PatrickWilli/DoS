@@ -18,7 +18,7 @@ import org.willi.dos.useragent.UserAgent;
  *
  * @author phamm
  */
-public class HTTPFlood extends AttackMethod implements Attack 
+public class HTTPFlood extends AttackMethod
 {
     public HTTPFlood(String host, int threads, int duration)
     {

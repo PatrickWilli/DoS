@@ -61,17 +61,17 @@ public class ArgsParser
         if (line.hasOption("slowloris"))
         {
             //isSlowLoris = true;
-            AttackMethod.isSlowLoris = true;
+            AttackOption.isSlowLoris = true;
         }
         if (line.hasOption("http"))
         {
-            AttackMethod.isHTTP = true;
+            AttackOption.isHTTP = true;
         }
         if (line.hasOption("udp"))
         {
-            AttackMethod.isUDP = true;
+            AttackOption.isUDP = true;
         }
-        if (AttackMethod.isMoreThenOneSelected())
+        if (AttackOption.isMoreThenOneSelected())
         {
             System.err.println("Please provide only one attack method");
             return;
@@ -117,7 +117,7 @@ public class ArgsParser
             System.err.println("You have to provide the duration");
             return;
         }
-        if(AttackMethod.isSlowLoris)
+        if(AttackOption.isSlowLoris)
         {
             if(target != null && connections != 0 && duration != 0)
             {
@@ -131,7 +131,7 @@ public class ArgsParser
             }
             
         }
-        if(AttackMethod.isUDP)
+        if(AttackOption.isUDP)
         {
             if(target != null && connections != 0 && duration != 0)
             {
@@ -144,7 +144,7 @@ public class ArgsParser
                 System.out.println("Please check your args!");
             }
         }
-        if(AttackMethod.isHTTP)
+        if(AttackOption.isHTTP)
         {
             if(target != null && connections != 0 && duration != 0)
             {

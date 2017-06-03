@@ -10,7 +10,7 @@ package org.willi.dos.argsparser;
  *
  * @author phamm
  */
-public class AttackMethod
+public class AttackOption
 {
     public static boolean isSlowLoris = false; // sl & http, sl & udp
     public static boolean isHTTP = false; //http & slowloris, http & udp

@@ -17,8 +17,6 @@ import org.willi.dos.methods.AttackMethod;
  */
 public class SlowLoris extends AttackMethod
 {
-    private static String[] help = {};
-    private static Random rand = new Random();
     
     public SlowLoris(String host, int threads, int duration)
     {
